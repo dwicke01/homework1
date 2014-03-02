@@ -22,6 +22,11 @@
 		FA0501C418BD5D200022AEA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0501A318BD5D1F0022AEA2 /* UIKit.framework */; };
 		FA0501CC18BD5D200022AEA2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA0501CA18BD5D200022AEA2 /* InfoPlist.strings */; };
 		FA0501CE18BD5D200022AEA2 /* BlackJackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0501CD18BD5D200022AEA2 /* BlackJackTests.m */; };
+		FA05021D18BDA8340022AEA2 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = FA05021C18BDA8340022AEA2 /* Card.m */; };
+		FA9A6D3A18BEF3D100159018 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9A6D3918BEF3D100159018 /* Player.m */; };
+		FA9A6D3D18BEF3FA00159018 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9A6D3C18BEF3FA00159018 /* User.m */; };
+		FA9A6D4018BEFAFE00159018 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9A6D3F18BEFAFE00159018 /* Deck.m */; };
+		FA9A6D4318C01CED00159018 /* Dealer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9A6D4218C01CED00159018 /* Dealer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,16 @@
 		FA0501C918BD5D200022AEA2 /* BlackJackTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BlackJackTests-Info.plist"; sourceTree = "<group>"; };
 		FA0501CB18BD5D200022AEA2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FA0501CD18BD5D200022AEA2 /* BlackJackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlackJackTests.m; sourceTree = "<group>"; };
+		FA05021B18BDA8340022AEA2 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		FA05021C18BDA8340022AEA2 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		FA9A6D3818BEF3D100159018 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		FA9A6D3918BEF3D100159018 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		FA9A6D3B18BEF3FA00159018 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		FA9A6D3C18BEF3FA00159018 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		FA9A6D3E18BEFAFE00159018 /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
+		FA9A6D3F18BEFAFE00159018 /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
+		FA9A6D4118C01CEC00159018 /* Dealer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dealer.h; sourceTree = "<group>"; };
+		FA9A6D4218C01CED00159018 /* Dealer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dealer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +137,16 @@
 				FA0501B818BD5D1F0022AEA2 /* ViewController.m */,
 				FA0501BA18BD5D200022AEA2 /* Images.xcassets */,
 				FA0501A618BD5D1F0022AEA2 /* Supporting Files */,
+				FA05021B18BDA8340022AEA2 /* Card.h */,
+				FA05021C18BDA8340022AEA2 /* Card.m */,
+				FA9A6D3818BEF3D100159018 /* Player.h */,
+				FA9A6D3918BEF3D100159018 /* Player.m */,
+				FA9A6D3B18BEF3FA00159018 /* User.h */,
+				FA9A6D3C18BEF3FA00159018 /* User.m */,
+				FA9A6D3E18BEFAFE00159018 /* Deck.h */,
+				FA9A6D3F18BEFAFE00159018 /* Deck.m */,
+				FA9A6D4118C01CEC00159018 /* Dealer.h */,
+				FA9A6D4218C01CED00159018 /* Dealer.m */,
 			);
 			path = BlackJack;
 			sourceTree = "<group>";
@@ -253,9 +278,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9A6D4318C01CED00159018 /* Dealer.m in Sources */,
 				FA0501B918BD5D1F0022AEA2 /* ViewController.m in Sources */,
+				FA9A6D4018BEFAFE00159018 /* Deck.m in Sources */,
 				FA0501B018BD5D1F0022AEA2 /* AppDelegate.m in Sources */,
+				FA9A6D3D18BEF3FA00159018 /* User.m in Sources */,
 				FA0501AC18BD5D1F0022AEA2 /* main.m in Sources */,
+				FA05021D18BDA8340022AEA2 /* Card.m in Sources */,
+				FA9A6D3A18BEF3D100159018 /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +504,7 @@
 				FA0501D318BD5D200022AEA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA0501D418BD5D200022AEA2 /* Build configuration list for PBXNativeTarget "BlackJackTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +513,7 @@
 				FA0501D618BD5D200022AEA2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
