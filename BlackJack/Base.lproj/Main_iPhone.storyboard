@@ -123,6 +123,33 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hap-b4-1d0">
+                                <rect key="frame" x="106" y="180" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Y">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="InsuranceYesButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="QGa-5w-V1m"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ob5-MK-IFQ">
+                                <rect key="frame" x="160" y="180" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="N">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="InsuranceNoButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Cw1-KP-n6U"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="   Insurance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmB-XH-TNy">
+                                <rect key="frame" x="108" y="160" width="98" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -133,6 +160,9 @@
                         <outlet property="dealersScore" destination="u7U-wF-pS0" id="F0v-Kx-lha"/>
                         <outlet property="doubleDownButton" destination="ZYa-2b-QlH" id="SUp-TJ-JI4"/>
                         <outlet property="hitButton" destination="1XJ-nw-V3h" id="si7-YV-hNo"/>
+                        <outlet property="insuranceLabel" destination="fmB-XH-TNy" id="7Ez-80-H06"/>
+                        <outlet property="insuranceNoButton" destination="Ob5-MK-IFQ" id="eUy-Kj-PI0"/>
+                        <outlet property="insuranceYesButton" destination="hap-b4-1d0" id="Zt5-gw-jcJ"/>
                         <outlet property="playersHand" destination="5hC-FQ-DwD" id="wDf-Zn-JpS"/>
                         <outlet property="playersMoney" destination="64u-kU-bMx" id="QUo-fA-n7b"/>
                         <outlet property="playersScore" destination="Agt-rU-yDf" id="e17-LH-Ybd"/>

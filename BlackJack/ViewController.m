@@ -27,6 +27,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *surrenderButton;
 @property (weak, nonatomic) IBOutlet UILabel *playersSecondHand;
 @property (weak, nonatomic) IBOutlet UILabel *playersSecondScore;
+@property (weak, nonatomic) IBOutlet UILabel *insuranceLabel;
+@property (weak, nonatomic) IBOutlet UIButton *insuranceYesButton;
+@property (weak, nonatomic) IBOutlet UIButton *insuranceNoButton;
 
 @property User *user;
 @property Dealer *dealer;
@@ -41,6 +44,10 @@
 @end
 
 @implementation ViewController
+- (IBAction)InsuranceYesButton:(id)sender {
+}
+- (IBAction)InsuranceNoButton:(id)sender {
+}
 
 - (IBAction)SurrenderButton:(id)sender {
     self.user.money += 5;
@@ -98,6 +105,8 @@
 - (IBAction)SplitButton:(id)sender {
     [self.playersSecondHand setHidden:NO];
     [self.splitButton setHidden:YES];
+    [self.surrenderButton setHidden:YES];
+    [self.doubleDownButton setHidden:YES];
     [self.playersHand setHighlighted:YES];
     self.user.money -= 10;
     self.splitPot += 10;
@@ -179,6 +188,9 @@
     self.splitPot = 0;
     [self.playersSecondHand setHighlighted:NO];
     [self.playersSecondScore setHidden:YES];
+    [self.insuranceLabel setHidden:YES];
+    [self.insuranceYesButton setHidden:YES];
+    [self.insuranceNoButton setHidden:YES];
     
     if (self.counter == 5)
     {
@@ -254,9 +266,12 @@
     }
     
     // if the player has blackjack
-    if (self.user.score == 21 && self.dealer.score != 21)
+    if (self.user.score == 21)
     {
-        self.user.money += 25;
+        if (self.dealer.score != 21)
+            self.user.money += 15;
+        else
+            self.user.money += self.pot;
         [self.dealersHand setText:[self.dealer handToString]];
         [self.dealButton setHidden:NO];
         [self.hitButton setHidden:YES];
@@ -269,6 +284,18 @@
         s = @"$";
         s = [s stringByAppendingString:[NSString stringWithFormat:@"%d",[self.user money]]];
         [self.playersMoney setText:s];
+    }
+    else if ([hold3 value]==14) // if the dealer has an ace showing
+    {
+        [self.dealButton setHidden:YES];
+        [self.hitButton setHidden:YES];
+        [self.stayButton setHidden:YES];
+        [self.surrenderButton setHidden:YES];
+        [self.doubleDownButton setHidden:YES];
+        [self.splitButton setHidden:YES];
+        [self.insuranceLabel setHidden:NO];
+        [self.insuranceYesButton setHidden:NO];
+        [self.insuranceNoButton setHidden:NO];
     }
     
     self.counter++;
@@ -346,6 +373,9 @@
     [self.splitButton setHidden:YES];
     [self.playersSecondHand setHidden:YES];
     [self.playersSecondScore setHidden:YES];
+    [self.insuranceLabel setHidden:YES];
+    [self.insuranceYesButton setHidden:YES];
+    [self.insuranceNoButton setHidden:YES];
     NSString *s;
     s = @"$";
     s = [s stringByAppendingString:[NSString stringWithFormat:@"%d",[self.user money]]];
