@@ -11,6 +11,7 @@
 #import "Card.h"
 #import "Deck.h"
 #import "Dealer.h"
+#import "StrategyCalculator.h"
 
 @interface ViewController ()
 
@@ -30,6 +31,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *insuranceLabel;
 @property (weak, nonatomic) IBOutlet UIButton *insuranceYesButton;
 @property (weak, nonatomic) IBOutlet UIButton *insuranceNoButton;
+@property (weak, nonatomic) IBOutlet UIButton *adviceButton;
+@property (weak, nonatomic) IBOutlet UILabel *adviceLabel;
 
 @property User *user;
 @property Dealer *dealer;
@@ -40,6 +43,7 @@
 @property int counter; // counter to shuffle every 5 games
 @property BOOL split; // YES if split
 @property BOOL handleSplit; // YES if player is using second hand
+@property StrategyCalculator *strategyCalculator;
 
 @end
 
@@ -58,6 +62,8 @@
         [self.surrenderButton setHidden:YES];
         [self.doubleDownButton setHidden:YES];
         [self.splitButton setHidden:YES];
+        [self.adviceButton setHidden:YES];
+        [self.adviceLabel setHidden:YES];
         
         [self.dealersScore setText:[NSString stringWithFormat:@"%d",[self.dealer score]]];
         
@@ -74,6 +80,8 @@
         [self.stayButton setHidden:NO];
         [self.surrenderButton setHidden:NO];
         [self.doubleDownButton setHidden:NO];
+        [self.adviceButton setHidden:NO];
+        [self.adviceLabel setHidden:NO];
         
         if ([[self.user.hand objectAtIndex:0] calcValue] == [[self.user.hand objectAtIndex:1] calcValue])
             [self.splitButton setHidden:NO];
@@ -96,6 +104,8 @@
         [self.surrenderButton setHidden:YES];
         [self.doubleDownButton setHidden:YES];
         [self.splitButton setHidden:YES];
+        [self.adviceButton setHidden:YES];
+        [self.adviceLabel setHidden:YES];
         
         [self.dealersScore setText:[NSString stringWithFormat:@"%d",[self.dealer score]]];
         
@@ -112,6 +122,9 @@
         [self.stayButton setHidden:NO];
         [self.surrenderButton setHidden:NO];
         [self.doubleDownButton setHidden:NO];
+        [self.adviceButton setHidden:NO];
+        [self.adviceLabel setHidden:NO];
+
         
         if ([[self.user.hand objectAtIndex:0] calcValue] == [[self.user.hand objectAtIndex:1] calcValue])
             [self.splitButton setHidden:NO];
@@ -130,9 +143,12 @@
     [self.surrenderButton setHidden:YES];
     [self.doubleDownButton setHidden:YES];
     [self.splitButton setHidden:YES];
+    [self.adviceButton setHidden:YES];
+    [self.adviceLabel setHidden:YES];
 }
 
 - (IBAction)DoubleDownButton:(id)sender {
+    [self.adviceLabel setText:@""];
     self.user.money -= 10;
     self.pot += 10;
     
@@ -176,6 +192,7 @@
 }
 
 - (IBAction)SplitButton:(id)sender {
+    [self.adviceLabel setText:@""];
     [self.playersSecondHand setHidden:NO];
     [self.splitButton setHidden:YES];
     [self.surrenderButton setHidden:YES];
@@ -200,6 +217,7 @@
 }
 
 - (IBAction)HitButton:(id)sender {
+    [self.adviceLabel setText:@""];
     Card *hold;
     hold = [self.deck deal];
     if (!self.handleSplit)
@@ -214,6 +232,8 @@
                 [self.dealButton setHidden:NO];
                 [self.hitButton setHidden:YES];
                 [self.stayButton setHidden:YES];
+                [self.adviceButton setHidden:YES];
+                [self.adviceLabel setHidden:YES];
                 [self.playersHand setHighlighted:NO];
                 [self.playersSecondHand setHighlighted:YES];
             }
@@ -306,6 +326,9 @@
     [self.stayButton setHidden:NO];
     [self.surrenderButton setHidden:NO];
     [self.doubleDownButton setHidden:NO];
+    [self.adviceButton setHidden:NO];
+    [self.adviceLabel setHidden:NO];
+    [self.adviceLabel setText:@""];
     
     if ([hold1 calcValue] == [hold2 calcValue])
         [self.splitButton setHidden:NO];
@@ -329,6 +352,8 @@
         [self.surrenderButton setHidden:YES];
         [self.doubleDownButton setHidden:YES];
         [self.splitButton setHidden:YES];
+        [self.adviceButton setHidden:YES];
+        [self.adviceLabel setHidden:YES];
         
         [self.dealersScore setText:[NSString stringWithFormat:@"%d",[self.dealer score]]];
         
@@ -352,7 +377,8 @@
         [self.surrenderButton setHidden:YES];
         [self.doubleDownButton setHidden:YES];
         [self.splitButton setHidden:YES];
-        
+        [self.adviceButton setHidden:YES];
+        [self.adviceLabel setHidden:YES];
         NSString *s;
         s = @"$";
         s = [s stringByAppendingString:[NSString stringWithFormat:@"%d",[self.user money]]];
@@ -366,6 +392,8 @@
         [self.surrenderButton setHidden:YES];
         [self.doubleDownButton setHidden:YES];
         [self.splitButton setHidden:YES];
+        [self.adviceButton setHidden:YES];
+        [self.adviceLabel setHidden:YES];
         [self.insuranceLabel setHidden:NO];
         [self.insuranceYesButton setHidden:NO];
         [self.insuranceNoButton setHidden:NO];
@@ -429,6 +457,14 @@
     [self.surrenderButton setHidden:YES];
     [self.doubleDownButton setHidden:YES];
     [self.splitButton setHidden:YES];
+    [self.adviceButton setHidden:YES];
+    [self.adviceLabel setHidden:YES];
+}
+
+- (IBAction)AdviceButton:(id)sender
+{
+    NSString *advice = [self.strategyCalculator getStrategy:self.user.score :[[self.dealer.hand objectAtIndex:0] calcValue]:[self.user soft] :[[[self.user hand] objectAtIndex:0]calcValue]==[[[self.user hand] objectAtIndex:1] calcValue] && !self.split && !self.handleSplit];
+    [self.adviceLabel setText:advice];
 }
 
 - (void)viewDidLoad
@@ -439,6 +475,7 @@
     [self.deck shuffle];
     self.user = [[User alloc] init];
     self.dealer = [[Dealer alloc] init];
+    self.strategyCalculator = [[StrategyCalculator alloc]init];
     [self.hitButton setHidden:YES];
     [self.stayButton setHidden:YES];
     [self.surrenderButton setHidden:YES];
@@ -449,6 +486,8 @@
     [self.insuranceLabel setHidden:YES];
     [self.insuranceYesButton setHidden:YES];
     [self.insuranceNoButton setHidden:YES];
+    [self.adviceButton setHidden:YES];
+    [self.adviceLabel setHidden:YES];
     NSString *s;
     s = @"$";
     s = [s stringByAppendingString:[NSString stringWithFormat:@"%d",[self.user money]]];

@@ -23,6 +23,7 @@
 		FA0501CC18BD5D200022AEA2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA0501CA18BD5D200022AEA2 /* InfoPlist.strings */; };
 		FA0501CE18BD5D200022AEA2 /* BlackJackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0501CD18BD5D200022AEA2 /* BlackJackTests.m */; };
 		FA05021D18BDA8340022AEA2 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = FA05021C18BDA8340022AEA2 /* Card.m */; };
+		FA4BBCE518C4061100FBB789 /* StrategyCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4BBCE418C4061100FBB789 /* StrategyCalculator.m */; };
 		FA9A6D3A18BEF3D100159018 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9A6D3918BEF3D100159018 /* Player.m */; };
 		FA9A6D3D18BEF3FA00159018 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9A6D3C18BEF3FA00159018 /* User.m */; };
 		FA9A6D4018BEFAFE00159018 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9A6D3F18BEFAFE00159018 /* Deck.m */; };
@@ -62,6 +63,8 @@
 		FA0501CD18BD5D200022AEA2 /* BlackJackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlackJackTests.m; sourceTree = "<group>"; };
 		FA05021B18BDA8340022AEA2 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		FA05021C18BDA8340022AEA2 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		FA4BBCE318C4061100FBB789 /* StrategyCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrategyCalculator.h; sourceTree = "<group>"; };
+		FA4BBCE418C4061100FBB789 /* StrategyCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StrategyCalculator.m; sourceTree = "<group>"; };
 		FA9A6D3818BEF3D100159018 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		FA9A6D3918BEF3D100159018 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		FA9A6D3B18BEF3FA00159018 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 				FA9A6D3F18BEFAFE00159018 /* Deck.m */,
 				FA9A6D4118C01CEC00159018 /* Dealer.h */,
 				FA9A6D4218C01CED00159018 /* Dealer.m */,
+				FA4BBCE318C4061100FBB789 /* StrategyCalculator.h */,
+				FA4BBCE418C4061100FBB789 /* StrategyCalculator.m */,
 			);
 			path = BlackJack;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA4BBCE518C4061100FBB789 /* StrategyCalculator.m in Sources */,
 				FA9A6D4318C01CED00159018 /* Dealer.m in Sources */,
 				FA0501B918BD5D1F0022AEA2 /* ViewController.m in Sources */,
 				FA9A6D4018BEFAFE00159018 /* Deck.m in Sources */,
