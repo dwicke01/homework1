@@ -45,8 +45,81 @@
 
 @implementation ViewController
 - (IBAction)InsuranceYesButton:(id)sender {
+    self.user.score -= 5;
+    if ([self.dealer score] == 21)
+    {
+        self.user.money += 10;
+        [self.dealersHand setText:[self.dealer handToString]];
+        if (self.user.score == 21)
+            self.user.money += 10;
+        [self.dealButton setHidden:NO];
+        [self.hitButton setHidden:YES];
+        [self.stayButton setHidden:YES];
+        [self.surrenderButton setHidden:YES];
+        [self.doubleDownButton setHidden:YES];
+        [self.splitButton setHidden:YES];
+        
+        [self.dealersScore setText:[NSString stringWithFormat:@"%d",[self.dealer score]]];
+        
+        NSString *s;
+        s = @"$";
+        s = [s stringByAppendingString:[NSString stringWithFormat:@"%d",[self.user money]]];
+        [self.playersMoney setText:s];
+    }
+    else
+    {
+        [self.dealButton setHidden:YES];
+        [self.playersSecondHand setHidden:YES];
+        [self.hitButton setHidden:NO];
+        [self.stayButton setHidden:NO];
+        [self.surrenderButton setHidden:NO];
+        [self.doubleDownButton setHidden:NO];
+        
+        if ([[self.user.hand objectAtIndex:0] calcValue] == [[self.user.hand objectAtIndex:1] calcValue])
+            [self.splitButton setHidden:NO];
+    }
+    
+    [self.insuranceNoButton setHidden:YES];
+    [self.insuranceYesButton setHidden:YES];
+    [self.insuranceLabel setHidden:YES];
 }
+
 - (IBAction)InsuranceNoButton:(id)sender {
+    if ([self.dealer score] == 21)
+    {
+        [self.dealersHand setText:[self.dealer handToString]];
+        if (self.user.score == 21)
+            self.user.money += 10;
+        [self.dealButton setHidden:NO];
+        [self.hitButton setHidden:YES];
+        [self.stayButton setHidden:YES];
+        [self.surrenderButton setHidden:YES];
+        [self.doubleDownButton setHidden:YES];
+        [self.splitButton setHidden:YES];
+        
+        [self.dealersScore setText:[NSString stringWithFormat:@"%d",[self.dealer score]]];
+        
+        NSString *s;
+        s = @"$";
+        s = [s stringByAppendingString:[NSString stringWithFormat:@"%d",[self.user money]]];
+        [self.playersMoney setText:s];
+    }
+    else
+    {
+        [self.dealButton setHidden:YES];
+        [self.playersSecondHand setHidden:YES];
+        [self.hitButton setHidden:NO];
+        [self.stayButton setHidden:NO];
+        [self.surrenderButton setHidden:NO];
+        [self.doubleDownButton setHidden:NO];
+        
+        if ([[self.user.hand objectAtIndex:0] calcValue] == [[self.user.hand objectAtIndex:1] calcValue])
+            [self.splitButton setHidden:NO];
+    }
+    
+    [self.insuranceNoButton setHidden:YES];
+    [self.insuranceYesButton setHidden:YES];
+    [self.insuranceLabel setHidden:YES];
 }
 
 - (IBAction)SurrenderButton:(id)sender {
